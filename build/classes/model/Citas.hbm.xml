@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-dic-2023 22:25:51 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="hospital" name="model.Citas" optimistic-lock="version" table="citas">
+    <id name="id" type="java.lang.Long">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="medicos" type="long">
+      <column name="medico_id"/>
+    </property>
+    <many-to-one class="model.Enfermeros" fetch="select" name="enfermeros">
+      <column name="enfermero_id"/>
+    </many-to-one>
+    <property name="pacientes" type="long">
+      <column name="paciente_id"/>
+    </property>
+    <property name="fecha" type="timestamp">
+      <column length="19" name="fecha" not-null="true"/>
+    </property>
+    <property name="createdAt" type="timestamp">
+      <column length="19" name="created_at"/>
+    </property>
+    <property name="updatedAt" type="timestamp">
+      <column length="19" name="updated_at"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tratamientoses" table="tratamientos">
+      <key>
+        <column name="cita_id"/>
+      </key>
+      <one-to-many class="model.Tratamientos"/>
+    </set>
+  </class>
+</hibernate-mapping>

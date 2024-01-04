@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-dic-2023 22:25:51 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="hospital" name="model.Medicos" optimistic-lock="version" table="medicos">
+    <id name="id" type="java.lang.Long">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="model.Especialidades" fetch="select" name="especialidades">
+      <column name="especialidad_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="model.Horarios" fetch="select" name="horarios">
+      <column name="horario_id"/>
+    </many-to-one>
+    <many-to-one class="model.Users" fetch="select" name="users">
+      <column name="user_id"/>
+    </many-to-one>
+    <property name="numeroColegiado" type="string">
+      <column length="10" name="numero_colegiado" not-null="true" unique="true"/>
+    </property>
+    <property name="dni" type="string">
+      <column length="9" name="dni" not-null="true" unique="true"/>
+    </property>
+    <property name="nombre" type="string">
+      <column length="191" name="nombre" not-null="true"/>
+    </property>
+    <property name="apellido1" type="string">
+      <column length="191" name="apellido1" not-null="true"/>
+    </property>
+    <property name="apellido2" type="string">
+      <column length="191" name="apellido2"/>
+    </property>
+    <property name="telefono" type="string">
+      <column length="15" name="telefono"/>
+    </property>
+    <property name="sexo" type="string">
+      <column length="7" name="sexo"/>
+    </property>
+    <property name="createdAt" type="timestamp">
+      <column length="19" name="created_at"/>
+    </property>
+    <property name="updatedAt" type="timestamp">
+      <column length="19" name="updated_at"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="pacienteses" table="pacientes">
+      <key>
+        <column name="medico_id"/>
+      </key>
+      <one-to-many class="model.Pacientes"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="citases" table="citas">
+      <key>
+        <column name="medico_id"/>
+      </key>
+      <one-to-many class="model.Citas"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-dic-2023 22:25:51 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="hospital" name="model.TratamientoTipos" optimistic-lock="version" table="tratamiento_tipos">
+    <id name="id" type="java.lang.Long">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="191" name="nombre" not-null="true" unique="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="65535" name="descripcion"/>
+    </property>
+    <property name="createdAt" type="timestamp">
+      <column length="19" name="created_at"/>
+    </property>
+    <property name="updatedAt" type="timestamp">
+      <column length="19" name="updated_at"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tratamientoses" table="tratamientos">
+      <key>
+        <column name="tratamiento_tipo_id"/>
+      </key>
+      <one-to-many class="model.Tratamientos"/>
+    </set>
+  </class>
+</hibernate-mapping>

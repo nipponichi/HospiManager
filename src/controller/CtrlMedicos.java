@@ -63,6 +63,8 @@ public class CtrlMedicos implements ActionListener {
         medico.setApellido2(frmMedicos.txtApellido2.getText().trim());
         medico.setTelefono(frmMedicos.txtTelefono.getText().trim());
         accionesMedico.guardarMedico(medico);
+        limpiarCampos();
+        cargarMedicos();
     }
 
     // Modifica los datos de un médico
@@ -110,6 +112,7 @@ public class CtrlMedicos implements ActionListener {
         }
 
         accionesMedico.actualizarMedico(medico);
+        limpiarCampos();
         cargarMedicos();
     }
 
@@ -153,26 +156,43 @@ public class CtrlMedicos implements ActionListener {
             long id = Long.parseLong(idMedico);
             System.out.println("id Eliminar: "+id);
             medico.setId(id);
+
+            int confirm = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres eliminar este médico?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                accionesMedico.eliminarMedico(medico);
+                limpiarCampos();
+                cargarMedicos();
+            }
         }  
-        accionesMedico.eliminarMedico(medico);
-        cargarMedicos();
     }
 
     // Carga los medicos de una lista en la tabla médicos
     public void cargarMedicos () {
 
-            List<Medicos> listaMedicos = accionesMedico.obtenerMedicos();
+        List<Medicos> listaMedicos = accionesMedico.obtenerMedicos();
 
-            DefaultTableModel modelMedico = new DefaultTableModel();
-            modelMedico.setColumnIdentifiers(new Object[] {"Id", "Num. Colegiado", "Nombre", "Apellido 1", "Apellido 2", "Especialidad"});
+        DefaultTableModel modelMedico = new DefaultTableModel();
+        modelMedico.setColumnIdentifiers(new Object[]{"Id", "Num. Colegiado", "Nombre", "Apellido 1", "Apellido 2", "Especialidad"});
 
-            for (Medicos medico : listaMedicos) {
-                modelMedico.addRow(new Object[] {medico.getId(), medico.getNumeroColegiado(), medico.getNombre(), 
-                    medico.getApellido1(), medico.getApellido2(), medico.getEspecialidades().getId()});
-            }
+        for (Medicos medico : listaMedicos) {
+            modelMedico.addRow(new Object[]{medico.getId(), medico.getNumeroColegiado(), medico.getNombre(),
+                medico.getApellido1(), medico.getApellido2(), medico.getEspecialidades().getId()});
+        }
 
-            frmMedicos.jTMedicos.setModel(modelMedico);
+        frmMedicos.jTMedicos.setModel(modelMedico);
     }
+    
+    // Limpia los campos del formulario
+    public void limpiarCampos() {
+        frmMedicos.txtApellido1.setText("");
+        frmMedicos.txtApellido2.setText("");
+        frmMedicos.txtDni.setText("");
+        frmMedicos.txtId.setText("");
+        frmMedicos.txtNombre.setText("");
+        frmMedicos.txtNumColegiado.setText("");
+        frmMedicos.txtTelefono.setText("");
+        frmMedicos.cbEspecialidad.setSelectedIndex(0);
+  }
 
 }
 

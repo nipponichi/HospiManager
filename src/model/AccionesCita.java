@@ -37,7 +37,7 @@ public class AccionesCita {
     }
     
     //Elimina en BD la cita según la id introducida
-    public void eliminarCita(Citas cita) {
+    public static void eliminarCita(Citas cita) {
         sesion.iniciarOperacion();
         long id = cita.getId();
         cita = (Citas) sesion.session.get(Citas.class, id);

@@ -12,6 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import view.*;
@@ -33,6 +34,9 @@ public class CtrlMainMenu implements ActionListener, MouseListener, MouseMotionL
         this.frmMainMenu.lblPacientes.addMouseMotionListener(this);
         this.frmMainMenu.lblCitas.addMouseListener(this);
         this.frmMainMenu.lblCitas.addMouseMotionListener(this);
+
+        this.frmMainMenu.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
         this.frmMainMenu.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -46,6 +50,7 @@ public class CtrlMainMenu implements ActionListener, MouseListener, MouseMotionL
             }
         });
     }
+
 
     public void iniciar(){
         frmMainMenu.setTitle("Main Menu");
@@ -127,20 +132,20 @@ public class CtrlMainMenu implements ActionListener, MouseListener, MouseMotionL
     }
     
     public void setVersion(){
-        frmMainMenu.lblVersion.setText("Ver.1.0");
+        frmMainMenu.lblVersion.setText("Ver.1.01");
     }
     
-public void setLogo() {
-    try {
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/resource/logo.jpg"));
-        Image image = imageIcon.getImage();
-        Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-        ImageIcon finalImageIcon = new ImageIcon(newimg);
-        frmMainMenu.lblLogo.setIcon(finalImageIcon);
-    } catch (Exception e) {
-        e.printStackTrace();
+    public void setLogo() {
+        try {
+            ImageIcon imageIcon = new ImageIcon(getClass().getResource("/resource/logo.png"));
+            Image image = imageIcon.getImage();
+            Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon finalImageIcon = new ImageIcon(newimg);
+            frmMainMenu.lblLogo.setIcon(finalImageIcon);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-}
 
 }
     

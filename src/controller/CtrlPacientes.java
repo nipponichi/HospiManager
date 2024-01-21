@@ -59,6 +59,8 @@ public class CtrlPacientes implements ActionListener {
        paciente.setSip(frmPacientes.txtSip.getText().trim());
        paciente.setTelefono(frmPacientes.txtTelefono.getText().trim());
        accionesPaciente.guardarPaciente(paciente);
+       limpiarCampos();
+       cargarPacientes();
     }
     
     // Modifica un paciente seleccionado segun su ID
@@ -110,6 +112,7 @@ public class CtrlPacientes implements ActionListener {
             paciente.setSexo("mujer");
         }
         accionesPaciente.actualizarPaciente(paciente);
+        limpiarCampos();
         cargarPacientes();
     }
     
@@ -162,10 +165,16 @@ public class CtrlPacientes implements ActionListener {
             long id = Long.parseLong(idPaciente);
             System.out.println("id Eliminar: "+id);
             paciente.setId(id);
+
+            int confirm = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres eliminar este paciente?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                accionesPaciente.eliminarPaciente(paciente);
+                limpiarCampos();
+                cargarPacientes();
+            }
         }  
-        accionesPaciente.eliminarPaciente(paciente);
-        cargarPacientes();
     }
+
     
     // Carga los pacientes desde una lista a la tabla pacientes.
     public void cargarPacientes() {
@@ -183,5 +192,17 @@ public class CtrlPacientes implements ActionListener {
 
         frmPacientes.jTPacientes.setModel(modelPaciente);
     }
-
+    
+    // Limpiar los textfields del formulario
+    public void limpiarCampos() {
+      frmPacientes.txtApellido1.setText("");
+      frmPacientes.txtApellido2.setText("");
+      frmPacientes.txtDni.setText("");
+      frmPacientes.txtId.setText("");
+      frmPacientes.txtLocalidad.setText("");
+      frmPacientes.txtNombre.setText("");
+      frmPacientes.txtSip.setText("");
+      frmPacientes.txtTelefono.setText("");
+      frmPacientes.cbSexo.setSelectedIndex(0);
+  }
 }

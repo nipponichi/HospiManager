@@ -266,17 +266,21 @@ public class CtrlCitas implements ActionListener {
     
     // Elimina la cita por su ID escrita en el TextArea
     public void eliminarCita() {
-        String idCita = frmCitas.txtId.getText().trim();
-        if (!idCita.isEmpty()) {
-            long id = Long.parseLong(idCita);
-            System.out.println("id Eliminar: "+id);
-            cita.setId(id);
-        }  
-        accionesCita.eliminarCita(cita);
-        limpiarCampos();
-        cargarCitas();
+            String idCita = frmCitas.txtId.getText().trim();
+            if (!idCita.isEmpty()) {
+                long id = Long.parseLong(idCita);
+                System.out.println("id Eliminar: " + id);
+                cita.setId(id);
+
+                int confirm = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres eliminar esta cita?", "Confirmión", JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
+                    accionesCita.eliminarCita(cita);
+                    limpiarCampos();
+                    cargarCitas();
+            }
+        }
     }
-    
+ 
     //Limpia los campos del formulario de Citas
     public void limpiarCampos(){
         frmCitas.txtId.setText("");

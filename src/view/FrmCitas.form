@@ -54,7 +54,7 @@
                                   <Component id="txtIdMedico" max="32767" attributes="0"/>
                                   <Component id="txtIdPaciente" alignment="1" max="32767" attributes="0"/>
                                   <Component id="dcFecha" alignment="1" pref="202" max="32767" attributes="0"/>
-                                  <Component id="jSHora" max="32767" attributes="0"/>
+                                  <Component id="jSHora" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="18" pref="7" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -119,11 +119,11 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnMostrar" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblFecha" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnMostrar" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="lblFecha" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dcFecha" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="dcFecha" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">

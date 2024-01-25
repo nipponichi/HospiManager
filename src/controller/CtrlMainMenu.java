@@ -42,7 +42,7 @@ public class CtrlMainMenu implements ActionListener, MouseListener, MouseMotionL
             public void windowClosing(WindowEvent e) {
                 int confirm = JOptionPane.showOptionDialog(
                     null, "¿Seguro que quieres cerrar la aplicación?", 
-                    "Confirmación de cerrar", JOptionPane.YES_NO_OPTION, 
+                    "Confirmación", JOptionPane.YES_NO_OPTION, 
                     JOptionPane.QUESTION_MESSAGE, null, null, null);
                 if (confirm == JOptionPane.YES_OPTION) {
                     frmMainMenu.dispose();
@@ -50,7 +50,6 @@ public class CtrlMainMenu implements ActionListener, MouseListener, MouseMotionL
             }
         });
     }
-
 
     public void iniciar(){
         frmMainMenu.setTitle("Main Menu");
@@ -132,7 +131,7 @@ public class CtrlMainMenu implements ActionListener, MouseListener, MouseMotionL
     }
     
     public void setVersion(){
-        frmMainMenu.lblVersion.setText("Ver.1.01");
+        frmMainMenu.lblVersion.setText("Ver.1.02");
     }
     
     public void setLogo() {

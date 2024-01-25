@@ -123,7 +123,6 @@ public class CtrlCitas implements ActionListener {
         frmCitas.jTCitas.setModel(modelCita);
     }
 
-
     // Método para seleccionar la fecha desde el DateChooser
     public Date seleccionarFecha() {
         Date fecha = frmCitas.dcFecha.getDate();

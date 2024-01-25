@@ -25,7 +25,6 @@ public class AccionesMedico {
         System.out.println("Registro: "+ medicoGuardado.getNombre()); 
         sesion.terminarOperacion();
         System.out.println("Terminado!");
-
         return medicoGuardado;
     }
 

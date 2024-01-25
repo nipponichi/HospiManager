@@ -5,6 +5,7 @@
     <Property name="closable" type="boolean" value="true"/>
     <Property name="maximizable" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="true"/>
+    <Property name="alignmentY" type="float" value="-10.0"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -29,20 +30,20 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblApellido2" min="-2" max="-2" attributes="0"/>
                           <Component id="lblApellido1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNombre" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblDni" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSip" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblId" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblTelefono" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblApellido2" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblLocalidad" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -52,23 +53,23 @@
                   <Component id="txtId" max="32767" attributes="0"/>
                   <Component id="txtSip" max="32767" attributes="0"/>
                   <Component id="txtDni" max="32767" attributes="0"/>
-                  <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtApellido1" max="32767" attributes="0"/>
-                  <Component id="txtApellido2" max="32767" attributes="0"/>
-                  <Component id="txtTelefono" max="32767" attributes="0"/>
                   <Component id="txtLocalidad" max="32767" attributes="0"/>
                   <Component id="dcNacimiento" alignment="0" max="32767" attributes="0"/>
                   <Component id="cbSexo" max="32767" attributes="0"/>
+                  <Component id="txtTelefono" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtApellido2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtNombre" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnGuardar" min="-2" pref="85" max="-2" attributes="0"/>
-                  <Component id="btnEliminar" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
-                  <Component id="btnMostrar" min="-2" pref="85" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnGuardar" max="32767" attributes="0"/>
+                  <Component id="btnEliminar" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnMostrar" max="32767" attributes="0"/>
+                  <Component id="btnModificar" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="609" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="603" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -124,9 +125,9 @@
                           <Component id="txtLocalidad" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="dcNacimiento" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -135,7 +136,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -357,6 +358,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="F.Nacimiento:"/>
+        <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
